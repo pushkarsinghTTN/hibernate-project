@@ -1,8 +1,6 @@
 package com.hibernate.demo;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 @Entity
 public class Author{
     @Id
@@ -16,9 +14,10 @@ public class Author{
     private Address address;
     @ElementCollection
     List<String> subjects= new ArrayList<>();
-    @OneToOne
-    @JoinColumn(name = "Book_Written")
-    private Book book;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(joinColumns = @JoinColumn(name="AUTHOR_ID"),inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
+    Collection<Book> book= new HashSet<Book>();
     public Calendar getDate() {
         return date;
     }
@@ -61,10 +60,10 @@ public class Author{
     public void setSubjects(List<String> subjects) {
         this.subjects = subjects;
     }
-    public Book getBook() {
+    public Collection<Book> getBook() {
         return book;
     }
-    public void setBook(Book book) {
+    public void setBook(Collection<Book> book) {
         this.book = book;
     }
     @Override
