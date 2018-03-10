@@ -1,16 +1,22 @@
 package com.hibernate.demo;
 import javax.persistence.*;
-import java.util.*;
-
+import java.util.Calendar;
 @Entity
 public class Author{
-
     @Id
     private Integer id;
     private String fname;
     private String lname;
     private Integer age;
 
+    private Calendar date;
+
+    public Calendar getDate() {
+        return date;
+    }
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
     public Integer getId() {
         return id;
     }
@@ -43,6 +49,7 @@ public class Author{
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", age=" + age +
+                ", date=" + date +
                 '}';
     }
 }
