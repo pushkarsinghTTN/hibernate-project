@@ -1,6 +1,8 @@
 package com.hibernate.demo;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 @Entity
 public class Author{
     @Id
@@ -11,6 +13,8 @@ public class Author{
     @Temporal(TemporalType.DATE)
     private Calendar date;
     private Address address;
+    @ElementCollection
+    List<String> subjects= new ArrayList<>();
     public Calendar getDate() {
         return date;
     }
@@ -47,6 +51,12 @@ public class Author{
     public void setAddress(Address address) {
         this.address = address;
     }
+    public List<String> getSubjects() {
+        return subjects;
+    }
+    public void setSubjects(List<String> subjects) {
+        this.subjects = subjects;
+    }
     @Override
     public String toString() {
         return "Author{" +
@@ -56,6 +66,7 @@ public class Author{
                 ", age=" + age +
                 ", date=" + date +
                 ", address=" + address +
+                ", subjects=" + subjects +
                 '}';
     }
 }
