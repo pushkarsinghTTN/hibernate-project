@@ -50,7 +50,7 @@ public class Application {
         cal4.set(1996,8,15);
         obj4.setDate(cal4);
         session.save(obj4);
-        
+
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();
