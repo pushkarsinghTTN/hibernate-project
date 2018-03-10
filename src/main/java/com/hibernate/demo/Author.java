@@ -14,9 +14,7 @@ public class Author{
     private Address address;
     @ElementCollection
     List<String> subjects= new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(joinColumns = @JoinColumn(name="AUTHOR_ID"),inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
+    @OneToMany(mappedBy = "Author")
     Collection<Book> book= new HashSet<Book>();
     public Calendar getDate() {
         return date;
