@@ -2,6 +2,7 @@ package com.hibernate.demo;
 import javax.persistence.*;
 import java.util.Calendar;
 
+
 @Entity
 public class Author{
     @Id
@@ -10,6 +11,7 @@ public class Author{
     @Transient
     private String lname;
     private Integer age;
+    @Temporal(TemporalType.DATE)
     private Calendar date;
     public Integer getId() {
         return id;
