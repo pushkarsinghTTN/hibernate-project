@@ -1,22 +1,19 @@
 package com.hibernate.demo;
 import javax.persistence.*;
 import java.util.Calendar;
+
 @Entity
 public class Author{
     @Id
     private Integer id;
+    @Column(name="firstname")
     private String fname;
+    @Column(name="lastname")
     private String lname;
+    @Column(name="auth_age")
     private Integer age;
-
+    @Column(name="DOB")
     private Calendar date;
-
-    public Calendar getDate() {
-        return date;
-    }
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
     public Integer getId() {
         return id;
     }
@@ -40,6 +37,12 @@ public class Author{
     }
     public void setAge(Integer age) {
         this.age = age;
+    }
+    public Calendar getDate() {
+        return date;
+    }
+    public void setDate(Calendar date) {
+        this.date = date;
     }
 
     @Override
