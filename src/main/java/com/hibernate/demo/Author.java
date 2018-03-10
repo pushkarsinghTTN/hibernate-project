@@ -2,10 +2,10 @@ package com.hibernate.demo;
 import javax.persistence.*;
 import java.util.Calendar;
 
-
 @Entity
 public class Author{
-    @Id
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String fname;
     @Transient
@@ -13,6 +13,7 @@ public class Author{
     private Integer age;
     @Temporal(TemporalType.DATE)
     private Calendar date;
+
     public Integer getId() {
         return id;
     }
@@ -43,6 +44,7 @@ public class Author{
     public void setDate(Calendar date) {
         this.date = date;
     }
+
     @Override
     public String toString() {
         return "Author{" +
