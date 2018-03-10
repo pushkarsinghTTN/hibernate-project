@@ -6,13 +6,10 @@ import java.util.Calendar;
 public class Author{
     @Id
     private Integer id;
-    @Column(name="firstname")
     private String fname;
-    @Column(name="lastname")
+    @Transient
     private String lname;
-    @Column(name="auth_age")
     private Integer age;
-    @Column(name="DOB")
     private Calendar date;
     public Integer getId() {
         return id;
@@ -44,7 +41,6 @@ public class Author{
     public void setDate(Calendar date) {
         this.date = date;
     }
-
     @Override
     public String toString() {
         return "Author{" +
