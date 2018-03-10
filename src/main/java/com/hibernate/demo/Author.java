@@ -12,9 +12,13 @@ public class Author{
     private Integer age;
     @Temporal(TemporalType.DATE)
     private Calendar date;
+    @Embedded
     private Address address;
     @ElementCollection
     List<String> subjects= new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name = "Book_Written")
+    private Book book;
     public Calendar getDate() {
         return date;
     }
@@ -57,6 +61,12 @@ public class Author{
     public void setSubjects(List<String> subjects) {
         this.subjects = subjects;
     }
+    public Book getBook() {
+        return book;
+    }
+    public void setBook(Book book) {
+        this.book = book;
+    }
     @Override
     public String toString() {
         return "Author{" +
@@ -67,6 +77,7 @@ public class Author{
                 ", date=" + date +
                 ", address=" + address +
                 ", subjects=" + subjects +
+                ", book=" + book +
                 '}';
     }
 }
