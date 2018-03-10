@@ -1,11 +1,14 @@
 package com.hibernate.demo;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 @Entity
 public class Book {
     @Id
     private Integer id;
     private String bname;
+    @ManyToOne
+    Author author;
     public Integer getId() {
         return id;
     }
