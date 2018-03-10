@@ -14,8 +14,8 @@ public class Author{
     private Address address;
     @ElementCollection
     List<String> subjects= new ArrayList<>();
-    @OneToMany(mappedBy = "Author")
-    Collection<Book> book= new HashSet<Book>();
+    @ManyToMany
+    List<Book> book= new ArrayList<>();
     public Calendar getDate() {
         return date;
     }
@@ -58,10 +58,10 @@ public class Author{
     public void setSubjects(List<String> subjects) {
         this.subjects = subjects;
     }
-    public Collection<Book> getBook() {
+    public List<Book> getBook() {
         return book;
     }
-    public void setBook(Collection<Book> book) {
+    public void setBook(List<Book> book) {
         this.book = book;
     }
     @Override
