@@ -6,6 +6,7 @@ import java.util.Calendar;
 public class Author{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
     private String fname;
     @Transient
